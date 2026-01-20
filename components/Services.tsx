@@ -89,7 +89,7 @@ const Services: React.FC = () => {
                 <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-between z-10">
                   
                   {/* Top: ID & Icon */}
-                  <div className={`flex justify-between items-start transition-all duration-500 ${isActive ? 'opacity-100' : 'opacity-50 lg:opacity-100 lg:justify-center lg:items-center lg:h-full lg:rotate-180 lg:[writing-mode:vertical-rl]'}`}>
+                  <div className={`flex justify-between items-start transition-all duration-500 ${isActive ? 'opacity-100' : 'opacity-50 lg:opacity-0'}`}>
                     <span className={`font-mono text-xl md:text-2xl font-bold ${isActive ? 'text-red-600' : 'text-zinc-600'}`}>
                       /{service.id}
                     </span>
