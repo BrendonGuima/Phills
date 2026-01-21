@@ -10,9 +10,9 @@ import { Category, PortfolioItem } from './types';
 export const portfolioItems: PortfolioItem[] = [
   { 
     id: 1, 
-    title: 'Neon Dreams', 
+    title: 'Live Experience', 
     category: Category.EVENTS, 
-    imageUrl: 'https://photos.smugmug.com/Corporativo/Web-Summit-Rio-2023-Portfolio/i-h7FMGS4/0/LjqK7ZbCcwgp5dVrRsMLNvqZ7KgXHP7RQMVvqpw6g/L/foto-1-L.jpg', 
+    imageUrl: 'https://photos.smugmug.com/Eventos-2025/Dez20-Natanzinho-Lima-Divinopolis/i-VJdMNNN/0/LXxvbgjRtBqvLMV8HwGHgBMvpKMk92TGQRzZVBqq9/X3/Foto-15-X3.jpg', 
     gridSpan: 'col-span-1' 
   },
   { 
@@ -24,9 +24,9 @@ export const portfolioItems: PortfolioItem[] = [
   },
   { 
     id: 3, 
-    title: 'Tech Summit 2024', 
+    title: 'Web Summit Rio', 
     category: Category.CORPORATE, 
-    imageUrl: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1600&auto=format&fit=crop', 
+    imageUrl: 'https://photos.smugmug.com/Corporativo/Web-Summit-Rio-2023-Portfolio/i-h7FMGS4/0/LjqK7ZbCcwgp5dVrRsMLNvqZ7KgXHP7RQMVvqpw6g/L/foto-1-L.jpg', 
     gridSpan: 'col-span-2' // Ocupa 2 colunas
   },
   { 
@@ -40,21 +40,21 @@ export const portfolioItems: PortfolioItem[] = [
     id: 5, 
     title: 'CEO Portraits', 
     category: Category.CORPORATE, 
-    imageUrl: 'https://photos.smugmug.com/Marcas-e-Empresas-/i-7xMdDr9/0/KKcdMBZrmmcVVnNRfc4PBbR4FRXmFthhLZm7cGrWt/L/IMG_5009-L.jpg', 
+    imageUrl: 'https://photos.smugmug.com/Eventos-2025/Dez08-VK-Summit-SP-2025/i-Hf779g5/0/M8wnXnH8jFGhJQDGJTvs2bvs5C8fbfKPmcKsjSMR3/X3/Foto-85-X3.jpg', 
     gridSpan: 'col-span-1' 
   },
   { 
     id: 6, 
-    title: 'Vintage Classics', 
+    title: 'Sport Car',
     category: Category.AUTOMOTIVE, 
-    imageUrl: 'https://photos.smugmug.com/Esportes-Carros/Porsche-Experience-Curvelo/i-PMvF2CH/0/LwqknsR3bP38RHKSK9TP4GnTjF5M7hSdpbQ3KbKhx/L/IMG_230888-L.jpg', 
+    imageUrl: 'https://photos.smugmug.com/Esportes-Carros/Porsche-Experience-Curvelo/i-Zqd58RD/0/LWJdzcfGXrxRtgScBv6bNLFMKnfV3WKQdC3h6MRn5/X3/phillipeguimaraes-57-X3.jpg', 
     gridSpan: 'col-span-2' // Ocupa 2 colunas
   },
   {
     id: 7, 
     title: 'Night Life', 
     category: Category.EVENTS, 
-    imageUrl: 'https://photos.smugmug.com/Drone/i-z8bm8Zh/0/MWXxDdWT8z3V4XKXRRbjvXR3JZKS7PV3F997npvLp/L/foto-2-L.jpg', 
+    imageUrl: 'https://photos.smugmug.com/Eventos-2025/Dez20-Natanzinho-Lima-Divinopolis/i-W5J2kDN/0/NKB3DccBxRpT9wnXZ3c5Vb67gkRSLvZqsCqjSPmL8/X2/Foto-111-X2.jpg', 
     gridSpan: 'col-span-1'
   }
 ];

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Category } from '../types';
-import { portfolioItems } from '../portfolioData'; // Importando do seu "local storage"
+import { portfolioItems } from '../portfolioData';
 
 const Portfolio: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
@@ -14,8 +14,14 @@ const Portfolio: React.FC = () => {
     <section id="portfolio" className="py-24 relative z-10">
       <div className="container mx-auto px-4 md:px-8">
         
-        {/* Minimalist Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+        {/* Minimalist Header with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8"
+        >
           <div>
               <h2 className="font-display text-4xl md:text-6xl font-bold text-white">PORTFOLIO</h2>
               <div className="h-1 w-24 bg-red-600 mt-2"></div>
@@ -36,25 +42,23 @@ const Portfolio: React.FC = () => {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* 
-          Grid inteligente com 'grid-flow-dense' 
-          Isso preenche os buracos automaticamente puxando itens menores para cima 
-        */}
+        {/* Grid with Staggered Scroll Animation */}
         <motion.div 
           layout
           className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[350px] grid-flow-dense"
         >
           <AnimatePresence>
-            {filteredItems.map((item) => (
+            {filteredItems.map((item, index) => (
               <motion.div
                 layout
                 key={item.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: "circOut" }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
                 className={`group relative overflow-hidden bg-zinc-900 rounded-sm
                   ${item.gridSpan === 'col-span-2' ? 'md:col-span-2' : 'col-span-1'}
                 `}
@@ -81,11 +85,17 @@ const Portfolio: React.FC = () => {
           </AnimatePresence>
         </motion.div>
 
-        <div className="mt-16 text-center">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-16 text-center"
+        >
             <a href="#" className="inline-block border-b border-zinc-700 pb-1 text-zinc-500 hover:text-white hover:border-white transition-all text-sm uppercase tracking-widest">
                 Ver Galeria Completa
             </a>
-        </div>
+        </motion.div>
         
       </div>
     </section>

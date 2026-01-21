@@ -1,18 +1,28 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Logo from './Logo';
 
 const Hero: React.FC = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
-    <section className="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden">
+    <section ref={ref} className="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden">
       
       <div className="relative z-20 container mx-auto px-4 flex flex-col items-center justify-center h-full">
         
-        {/* Animated Reveal */}
+        {/* Animated Reveal with Parallax */}
         <motion.div
+          style={{ y, opacity }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} // Custom easing
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative w-full max-w-4xl mx-auto flex flex-col items-center"
         >
            {/* Big Impact Logo */}
@@ -31,8 +41,9 @@ const Hero: React.FC = () => {
            </div>
         </motion.div>
 
-        {/* Floating Scroll Indicator */}
+        {/* Floating Scroll Indicator - Fades out quickly on scroll */}
         <motion.div
+          style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}

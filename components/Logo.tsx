@@ -9,9 +9,9 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'full' }) => {
   return (
     <div className={`flex items-center justify-center ${className}`}>
       <img 
-        src="https://photos.smugmug.com/photos/i-P6xTDKh/0/KHgV3FsHVDGSvM2D4bRSGbCXddbZrMvxcx6GGt9tB/300x102/i-P6xTDKh-300x102.png" 
+        src="https://i.imgur.com/HkHWiYh.png"
         alt="Phills Photography Logo" 
-        className={`object-contain filter invert brightness-0 ${
+        className={`object-contain filter ${
             // Removing specific heights here to allow the parent class to fully control size
             'w-auto h-full' 
         }`}

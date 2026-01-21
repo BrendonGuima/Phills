@@ -10,7 +10,7 @@ const services = [
     description: 'Capturando a eletricidade do palco e a emoção da multidão. Foco em baixa luz, movimento e momentos espontâneos.',
     tags: ['Festivais', 'Backstage', 'Nightlife', 'Artistas'],
     icon: Zap,
-    image: 'https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=2070&auto=format&fit=crop'
+    image: 'https://photos.smugmug.com/Eventos-2026/Jan03-Mixed-By-Mixed-Areia-2025-Dia-5/i-wr8jRx3/0/Lf6CpFCm7vKrD699GqsSJBzH7TBrwcJMNDmRCFVxq/X3/Foto-53-X3.jpg'
   },
   {
     id: '02',
@@ -19,7 +19,7 @@ const services = [
     description: 'Elevando a imagem da sua marca com retratos de poder e cobertura de eventos empresariais com estética editorial.',
     tags: ['Headshots', 'Conferências', 'Branding', 'Linkedin'],
     icon: Briefcase,
-    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop'
+    image: 'https://photos.smugmug.com/Corporativo/Web-Summit-Rio-2023-Portfolio/i-FSBnWSv/0/LR7ZbHHcw2dsDb6bTvpDnw65Pw3RpGV46PxHrCjfh/X2/PHIL3806-X2.jpg'
   },
   {
     id: '03',
@@ -28,7 +28,7 @@ const services = [
     description: 'A união entre engenharia e arte. Ensaios que valorizam as linhas, a velocidade e o design de máquinas incríveis.',
     tags: ['Editorial', 'Track Day', 'Lançamentos', 'Detalhes'],
     icon: Aperture,
-    image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop'
+    image: 'https://photos.smugmug.com/Esportes-Carros/Porsche-Experience-Curvelo/i-zFvw934/0/MGqJN645DZzGs6bG7rZTDRKsbvn8KgQ4gX44Q3cGf/X3/foto-71-X3.jpg'
   }
 ];
 
@@ -39,18 +39,30 @@ const Services: React.FC = () => {
     <section id="services" className="py-24 bg-zinc-950 relative overflow-hidden">
       <div className="container mx-auto px-4 h-full">
         
-        {/* Header Compacto */}
-        <div className="mb-12 flex flex-col md:flex-row justify-between items-end border-b border-zinc-800 pb-6 gap-6">
+        {/* Header Compacto - Slide Up on Scroll */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="mb-12 flex flex-col md:flex-row justify-between items-end border-b border-zinc-800 pb-6 gap-6"
+        >
           <h2 className="font-display text-4xl md:text-6xl font-bold text-white uppercase tracking-tighter">
             O Que <span className="text-red-600">Faço</span>
           </h2>
           <p className="text-zinc-500 font-mono text-xs md:text-sm uppercase tracking-widest max-w-md text-right">
              Selecione uma área para ver detalhes
           </p>
-        </div>
+        </motion.div>
 
-        {/* Creative Layout: Horizontal Accordion on Desktop / Stack on Mobile */}
-        <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px] w-full">
+        {/* Creative Layout: Horizontal Accordion - Fade In on Scroll */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px] w-full"
+        >
           {services.map((service) => {
             const isActive = activeId === service.id;
             
@@ -163,7 +175,7 @@ const Services: React.FC = () => {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
