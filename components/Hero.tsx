@@ -41,13 +41,13 @@ const Hero: React.FC = () => {
            </div>
         </motion.div>
 
-        {/* Floating Scroll Indicator - Fades out quickly on scroll */}
+        {/* Floating Scroll Indicator - Centered on Mobile, Spread on Desktop */}
         <motion.div
           style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-12 left-0 w-full flex justify-between items-end px-8 md:px-16"
+          className="absolute bottom-12 left-0 w-full flex justify-center md:justify-between items-end px-8 md:px-16"
         >
             <div className="hidden md:block text-xs text-zinc-600 font-mono">
                 EST. 2024

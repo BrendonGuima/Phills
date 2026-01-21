@@ -100,8 +100,18 @@ const Services: React.FC = () => {
                 {/* Content Container */}
                 <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-between z-10">
                   
-                  {/* Top: ID & Icon */}
-                  <div className={`flex justify-between items-start transition-all duration-500 ${isActive ? 'opacity-100' : 'opacity-50 lg:opacity-0'}`}>
+                  {/* MOBILE: Inactive View (Title Only) */}
+                  {!isActive && (
+                    <div className="lg:hidden absolute inset-0 flex items-center px-6">
+                        <div className="flex items-center gap-4 w-full">
+                            <span className="text-zinc-500 font-mono text-xl">/{service.id}</span>
+                            <span className="font-display text-2xl font-bold text-white uppercase tracking-wider">{service.title}</span>
+                        </div>
+                    </div>
+                  )}
+
+                  {/* Top: ID & Icon (Visible on Desktop always, Mobile only when active) */}
+                  <div className={`flex justify-between items-start transition-all duration-500 ${isActive ? 'opacity-100' : 'opacity-0 hidden lg:flex lg:opacity-0'}`}>
                     <span className={`font-mono text-xl md:text-2xl font-bold ${isActive ? 'text-red-600' : 'text-zinc-600'}`}>
                       /{service.id}
                     </span>
